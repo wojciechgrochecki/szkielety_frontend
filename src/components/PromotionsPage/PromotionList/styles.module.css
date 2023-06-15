@@ -1,0 +1,50 @@
+.promotion-list {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
+    flex: 1;
+    gap: 15px;
+    padding: 15px;
+}
+
+
+.promotion-wrap {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+}
+
+.buttons-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.promotion-wrap button {
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.promotion-wrap .delete-button {
+    background-color: var(--danger);
+}
+
+.promotion-wrap .delete-button:hover {
+    box-shadow: 0 0 0 1px var(--danger);
+}
+
+.promotion-wrap .edit-button {
+    background-color: var(--success);
+}
+
+.promotion-wrap .edit-button:hover {
+    box-shadow: 0 0 0 1px var(--success);
+}

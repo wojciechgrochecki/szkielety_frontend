@@ -1,24 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import RegistrationForm from './components/Register/RegistrationForm';
+import LoginForm from './components/Login/LoginForm';
+import PromotionAddForm from './components/AddPromotion'
+import { Route, Routes } from 'react-router-dom';
+import PromotionList from './components/PromotionsPage/PromotionList';
+import ProtectedRoute from './hooks/ProtectedRoute/ProtectedRoute'
+import { UserProvider } from './hooks/auth';
+import EditPromotion from './components/EditPromotion'
+import SinglePromotion from './components/PromotionsPage/SinglePromotion';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <UserProvider>
+      <Routes>
+        <Route path="/register" element={<RegistrationForm />} />
+        <Route path="/login" element={<LoginForm />} />
+
+        <Route element={<ProtectedRoute />}>
+          <Route path="/addPromotion" element={<PromotionAddForm />} />
+          <Route path="/" element={<PromotionList />} />
+          <Route path="/singlePromotion/:id" element={<SinglePromotion />} />
+          <Route path="/editPromotion/:id" element={<EditPromotion />} />
+        </Route>
+      </Routes>
+    </UserProvider>
   );
 }
 
